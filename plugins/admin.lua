@@ -1,13 +1,7 @@
 --[[
-|------------------------------------------------- |--------- ______-----------------_______---|
-|   ______   __   ______    _____     _____    __  |  _____  |  ____|  __     __    /  _____/  |
-|  |__  __| |  | |__  __|  /     \   |     \  |  | | |__   | | |____  |  |   |  |  /  /____    |
-|    |  |   |  |   |  |   /  /_\  \  |  |\  \ |  | |   /  /  |  ____| |  |   |  |  \____   /   |
-|    |  |   |  |   |  |  /  _____  \ |  | \  \|  | |  /  /_  | |____  |  |___|  |   ___/  /    |
-|    |__|   |__|   |__| /__/     \__\|__|  \_____| | |_____| |______|  \_______/  /______/     |
-|--------------------------------------------------|-------------------------------------------|
-| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 4.0 Anti Spam Cli Bot |
-|----------------------------------------------------------------------------------------------|
+|---------------------------------------------------------------------------------|
+| This Project Powered by : @sudo_tokhs_telegram   Version 1.2 Anti Spam Cli Bot  |
+|---------------------------------------------------------------------------------|
 ]]
 local function set_bot_photo(msg, success, result)
   local receiver = get_receiver(msg)
@@ -17,11 +11,11 @@ local function set_bot_photo(msg, success, result)
     os.rename(result, file)
     print('File moved to:', file)
     set_profile_photo(file, ok_cb, false)
-    send_large_msg(receiver, '💠Photo changed!💠', ok_cb, false)
+    send_large_msg(receiver, 'Photo changed!', ok_cb, false)
     redis:del("bot:photo")
   else
     print('Error downloading: '..msg.id)
-    send_large_msg(receiver, '💠Failed, please try again!💠', ok_cb, false)
+    send_large_msg(receiver, 'Failed, please try again!', ok_cb, false)
   end
 end
 
@@ -36,7 +30,7 @@ local function logadd(msg)
 	end
 	data[tostring(GBan_log)][tostring(msg.to.id)] = msg.to.peer_id
 	save_data(_config.moderation.data, data)
-	local text = '💠آمارسوپرگروه ثبت شد!💠'
+	local text = 'آمارسوپرگروه ثبت شد'
 	reply_msg(msg.id,text,ok_cb,false)
 	return
 end
@@ -52,7 +46,7 @@ local function logrem(msg)
 	end
 	data[tostring(GBan_log)][tostring(msg.to.id)] = nil
 	save_data(_config.moderation.data, data)
-	local text = '💠آمارسوپرگروه حذف شد!💠'
+	local text = 'آمارسوپرگروه حذف شد'
 	reply_msg(msg.id,text,ok_cb,false)
 	return
 end
@@ -178,35 +172,35 @@ local function run(msg,matches)
     end
     if matches[1] == "setbotphoto" then
     	redis:set("bot:photo", "waiting")
-    	return '💠Please send me bot photo now💠'
+    	return 'Please send me bot photo now'
     end
     if matches[1] == "markread" then
     	if matches[2] == "on" then
     		redis:set("bot:markread", "on")
-    		return "💠تیک دوم > روشن💠"
+    		return "تیک دوم > روشن"
     	end
     	if matches[2] == "off" then
     		redis:del("bot:markread")
-    		return "💠تیک دوم > خاموش💠"
+    		return "تیک دوم > خاموش"
     	end
     	return
     end
     if matches[1] == "pm" then
     	local text = "Message From "..(msg.from.username or msg.from.last_name).."\n\nMessage : "..matches[3]
     	send_large_msg("user#id"..matches[2],text)
-    	return "💠Message has been sent💠"
+    	return "Message has been sent"
     end
     
     if matches[1] == "pmblock" then
     	if is_admin2(matches[2]) then
-    		return "💠You can't block admins💠"
+    		return "You can't block admins"
     	end
     	block_user("user#id"..matches[2],ok_cb,false)
-    	return "💠کاربر بلاک شد💠"
+    	return "کاربر بلاک شد"
     end
     if matches[1] == "pmunblock" then
     	unblock_user("user#id"..matches[2],ok_cb,false)
-    	return "💠کاربر انبلاک شد💠"
+    	return "کاربر انبلاک شد"
     end
     if matches[1] == "import" then--join by group link
     	local hash = parsed_url(matches[2])
@@ -224,14 +218,14 @@ local function run(msg,matches)
     		return
     	end
       del_contact("user#id"..matches[2],ok_cb,false)
-      return "💠User "..matches[2].." removed from contact list💠"
+      return "User "..matches[2].." removed from contact list"
     end
     if matches[1] == "addcontact" and is_sudo(msg) then
     phone = matches[2]
     first_name = matches[3]
     last_name = matches[4]
     add_contact(phone, first_name, last_name, ok_cb, false)
-   return "💠User With Phone +"..matches[2].." has been added💠"
+   return "User With Phone +"..matches[2].." has been added"
 end
  if matches[1] == "sendcontact" and is_sudo(msg) then
     phone = matches[2]
@@ -241,7 +235,7 @@ end
 end
  if matches[1] == "mycontact" and is_sudo(msg) then
 	if not msg.from.phone then
-		return "💠I must Have Your Phone Number!💠"
+		return "I must Have Your Phone Number!"
     end
     phone = msg.from.phone
     first_name = (msg.from.first_name or msg.from.phone)
@@ -251,7 +245,7 @@ end
 
     if matches[1] == "dialoglist" then
       get_dialog_list(get_dialog_list_callback, {target = msg.from.id})
-      return "💠I've sent a group dialog list with both json and text format to your private messages💠"
+      return "I've sent a group dialog list with both json and text format to your private messages"
     end
     if matches[1] == "whois" then
       user_info("user#id"..matches[2],user_info_callback,{msg=msg})
@@ -266,14 +260,14 @@ end
     	for k,v in pairs(jdat) do
 			redis:hset('user:'..v, 'print_name', k)
 			banall_user(v)
-      		print(k, v.." Globally banned💠")
+      		print(k, v.."Globally banned")
     	end
     end
 	if matches[1] == 'reload' then
 		receiver = get_receiver(msg)
 		reload_plugins(true)
-		post_msg(receiver, "💠درحال آپدیت!💠", ok_cb, false)
-		return "💠آپدیت شد!💠"
+		post_msg(receiver, "🔁درحال آپدیت!", ok_cb, false)
+		return "☑آپدیت شد!"
 	end
 	--[[*For Debug*
 	if matches[1] == "vardumpmsg" and is_admin1(msg) then
@@ -286,12 +280,12 @@ end
 		if not long_id then
 			data[tostring(msg.to.id)]['long_id'] = msg.to.peer_id 
 			save_data(_config.moderation.data, data)
-			return "💠Updated ID💠"
+			return "Updated ID🔁"
 		end
 	end
 	if matches[1] == 'addlog' and not matches[2] then
 		if is_log_group(msg) then
-			return "💠Already a Log_SuperGroup💠"
+			return "Already a Log_SuperGroup"
 		end
 		print("Log_SuperGroup "..msg.to.title.."("..msg.to.id..") added")
 		savelog(msg.to.id, name_log.." ["..msg.from.id.."] added Log_SuperGroup")
@@ -299,9 +293,9 @@ end
 	end
 	if matches[1] == 'remlog' and not matches[2] then
 		if not is_log_group(msg) then
-			return "💠Not a Log_SuperGroup💠"
+			return "Not a Log_SuperGroup"
 		end
-		print("💠Log_SuperGroup "..msg.to.title.."("..msg.to.id..") removed💠")
+		print("Log_SuperGroup "..msg.to.title.."("..msg.to.id..") removed")
 		savelog(msg.to.id, name_log.." ["..msg.from.id.."] added Log_SuperGroup")
 		logrem(msg)
 	end
