@@ -2,10 +2,6 @@
 |---------------------------------------------------------------------------------|
 | This Project Powered by : @sudo_tokhs_telegram   Version 1.2 Anti Spam Cli Bot  |
 |---------------------------------------------------------------------------------|
-]]--[[
-|---------------------------------------------------------------------------------|
-| This Project Powered by : @sudo_tokhs_telegram   Version 1.2 Anti Spam Cli Bot  |
-|---------------------------------------------------------------------------------|
 ]]
 --Begin supergrpup.lua
 --Check members #Add supergroup
@@ -787,7 +783,7 @@ end
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "💠تنظیمات سوپر گروه💠:\n➖➖➖➖➖➖➖➖\n🔸$اسم ربات >> #ژوپیتر 4.0 \n🔹$قفل لینک >> #"..settings.lock_link.."\n🔸$قفل وب لینک >> #"..settings.lock_webpage.."\n🔹$قفل تگ >> #"..settings.lock_tag.."\n🔸$قفل شکلک >> #"..settings.lock_emoji.."\n🔹$قفل انگلیسی >> #"..settings.lock_eng.."\n🔸$قفل کلمات زشت >> #"..settings.lock_badw.."\n🔹$قفل حساسیت >> #"..settings.flood.."\n🔸$مقدار حساسیت >> #"..NUM_MSG_MAX.."\n🔹$قفل اسپم >> #"..settings.lock_spam.."\n🔸$قفل مخاطب >> #"..settings.lock_contacts.."\n🔹$قفل عربی/فارسی >> #"..settings.lock_arabic.."\n🔸$قفل اعضا >> #"..settings.lock_member.."\n🔹$قفل راستچین >> #"..settings.lock_rtl.."\n🔸$قفل فروارد >> #"..settings.lock_fwd.."\n🔹$قفل اعلان >> #"..settings.lock_tgservice.."\n🔸$قفل استیکر >> #"..settings.lock_sticker.."\n🔹$عمومی >> #"..settings.public.."\n🔸$قفل سختگیرانه >> #"..settings.strict
+  local text = "💠تنظیمات سوپر گروه💠:\n➖➖➖➖➖➖➖➖\n🔸$اسم ربات >> #Best🌟gruop_TG\n🔹$قفل لینک > #"..settings.lock_link.."\n🔸$قفل وب لینک >> #"..settings.lock_webpage.."\n🔹$قفل تگ >> #"..settings.lock_tag.."\n🔸$قفل شکلک >> #"..settings.lock_emoji.."\n🔹$قفل انگلیسی >> #"..settings.lock_eng.."\n🔸$قفل کلمات زشت >> #"..settings.lock_badw.."\n🔹$قفل حساسیت >> #"..settings.flood.."\n🔸$مقدار حساسیت >> #"..NUM_MSG_MAX.."\n🔹$قفل اسپم >> #"..settings.lock_spam.."\n🔸$قفل مخاطب >> #"..settings.lock_contacts.."\n🔹$قفل عربی/فارسی >> #"..settings.lock_arabic.."\n🔸$قفل اعضا >> #"..settings.lock_member.."\n🔹$قفل راستچین >> #"..settings.lock_rtl.."\n🔸$قفل فروارد >> #"..settings.lock_fwd.."\n🔹$قفل اعلان >> #"..settings.lock_tgservice.."\n🔸$قفل استیکر >> #"..settings.lock_sticker.."\n🔹$عمومی >> #"..settings.public.."\n🔸$قفل سختگیرانه >> #"..settings.strict
   reply_msg(msg.id, text, ok_cb, false)
 end
 
@@ -934,7 +930,7 @@ function get_message_callback(extra, success, result)
 			text = "💠[ "..user_id.." ]ادمین شد💠"
 		end
 		savelog(msg.to.id, name_log.." ["..msg.from.id.."] set: ["..user_id.."] as admin by reply")
-		send_large_msg(channel_id, text)
+		send_large_msg(channyel_id, text)
 	elseif get_cmd == "demoteadmin" then
 		local user_id = result.from.peer_id
 		local channel_id = "channel#id"..result.to.peer_id
