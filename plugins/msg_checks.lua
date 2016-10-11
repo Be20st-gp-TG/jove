@@ -2,10 +2,6 @@
 |---------------------------------------------------------------------------------|
 | This Project Powered by : @sudo_tokhs_telegram   Version 1.2 Anti Spam Cli Bot  |
 |---------------------------------------------------------------------------------|
-]]--[[
-|---------------------------------------------------------------------------------|
-| This Project Powered by : @sudo_tokhs_telegram   Version 1.2 Anti Spam Cli Bot  |
-|---------------------------------------------------------------------------------|
 ]]
 local function pre_process(msg)
 if is_chat_msg(msg) or is_super_group(msg) then
