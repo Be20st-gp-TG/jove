@@ -1,13 +1,11 @@
 --[[
-|------------------------------------------------- |--------- ______-----------------_______---|
-|   ______   __   ______    _____     _____    __  |  _____  |  ____|  __     __    /  _____/  |
-|  |__  __| |  | |__  __|  /     \   |     \  |  | | |__   | | |____  |  |   |  |  /  /____    |
-|    |  |   |  |   |  |   /  /_\  \  |  |\  \ |  | |   /  /  |  ____| |  |   |  |  \____   /   |
-|    |  |   |  |   |  |  /  _____  \ |  | \  \|  | |  /  /_  | |____  |  |___|  |   ___/  /    |
-|    |__|   |__|   |__| /__/     \__\|__|  \_____| | |_____| |______|  \_______/  /______/     |
-|--------------------------------------------------|-------------------------------------------|
-| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 4.0 Anti Spam Cli Bot |
-|----------------------------------------------------------------------------------------------|
+|---------------------------------------------------------------------------------|
+| This Project Powered by : @sudo_tokhs_telegram   Version 1.2 Anti Spam Cli Bot  |
+|---------------------------------------------------------------------------------|
+]]--[[
+|---------------------------------------------------------------------------------|
+| This Project Powered by : @sudo_tokhs_telegram   Version 1.2 Anti Spam Cli Bot  |
+|---------------------------------------------------------------------------------|
 ]]
 --Begin supergrpup.lua
 --Check members #Add supergroup
@@ -56,7 +54,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-	  local text = '💠سوپر گروه اضافه شد!(4.0)💠'
+	  local text = '☑سوپر گروه اضافه شد!(v1.2)'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -80,7 +78,7 @@ local function check_member_superrem(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-	  local text = '💠سوپر گروه حذف شد!(4.0)💠'
+	  local text = '❎سوپر گروه حذف شد!(v1.2)'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
