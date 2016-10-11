@@ -24,9 +24,9 @@ local function run(msg, matches)
 		local username = msg.from.username
 		local name = msg.from.first_name
 		if username and is_super_group(msg) then
-			send_large_msg(receiver , "فارسی اینجا مجاز نیست\n @"..username.."["..msg.from.id.."]\n💠وضعیت:کاربر حذف شد💠")
+			send_large_msg(receiver , "فارسی اینجا مجاز نیست\n @"..username.."["..msg.from.id.."]\nوضعیت:کاربر حذف شد")
 		else
-			send_large_msg(receiver , "فارسی اینجا مجاز نیست\n#نام: "..name.."["..msg.from.id.."]\n💠وضعیت:کاربر حذف شد💠")
+			send_large_msg(receiver , "فارسی اینجا مجاز نیست\n#نام: "..name.."["..msg.from.id.."]\nوضعیت:کاربر حذف شد")
 		end
 		local name = user_print_name(msg.from)
 		savelog(msg.to.id, name.." ["..msg.from.id.."] kicked (arabic was locked) ")
